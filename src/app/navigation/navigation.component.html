@@ -1,6 +1,14 @@
-<mat-toolbar color="primary"></mat-toolbar>
-<mat-sidenav-container color="accent" class="sidenav-container">
-  <mat-sidenav [(opened)]="opened" color="primary">
+<mat-toolbar color="primary">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="toggle sidenav"
+    (click)="toggleSidenav()"
+  >
+    menu
+  </mat-icon>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav [(opened)]="opened">
     <div class="sidenav-list-items">
       <a mat-list-item routerLink="Home">Home</a>
       <a mat-list-item routerLink="Chart">Chart</a>

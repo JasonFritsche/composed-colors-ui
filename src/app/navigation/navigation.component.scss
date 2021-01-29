@@ -1,5 +1,31 @@
+@import "../../styles/vars";
+@import "../../styles/mixins";
+
 .sidenav-container {
   height: 100%;
+}
+
+mat-toolbar {
+  mat-icon {
+    color: $dark;
+    @include tablet {
+      padding-left: 0.1em;
+    }
+    @include large {
+      padding-left: 0.5em;
+    }
+    @include desktop {
+      padding-left: 0.2em;
+    }
+    cursor: pointer;
+  }
+  mat-icon:hover {
+    color: lighten($dark, 20);
+  }
+}
+
+mat-sidenav {
+  background-color: darken($cc-accent, 5);
 }
 
 .sidenav-list-items {

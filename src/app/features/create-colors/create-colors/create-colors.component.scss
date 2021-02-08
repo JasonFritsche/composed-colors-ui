@@ -1,0 +1,14 @@
+.create-colors-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  .create-colors-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .create-colors-content {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}

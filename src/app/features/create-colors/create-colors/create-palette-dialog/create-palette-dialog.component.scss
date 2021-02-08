@@ -1,0 +1,71 @@
+@import "../../../../../styles/vars";
+
+.dialog-container {
+  display: flex;
+  flex-flow: column nowrap;
+  .palette-form-heading {
+    border-bottom: 0.5px solid lighten($dark, 55);
+    .mat-form-field-underline {
+      height: 0 !important;
+    }
+  }
+  .main-content-container {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 0.67rem 0;
+    border-bottom: 0.5px solid lighten($dark, 55);
+    .palette-form-wrapper {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      .palette-form-content {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: center;
+        .color-container {
+          width: 8em;
+          margin: 0.67rem;
+          .color-circle {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .color-picker-container {
+      margin-left: auto;
+      button {
+        margin-top: 0.1rem;
+        width: 100%;
+      }
+    }
+  }
+}
+
+mat-icon {
+  margin: 0.54rem 0.3rem 0 0;
+}
+
+.heading {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  margin: 0.67rem 0.2rem;
+  mat-form-field {
+    width: 80%;
+  }
+}
+
+.save-button {
+  margin: 0.1rem 0;
+}
+
+::ng-deep .mat-form-field .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-underline {
+  display: none;
+}

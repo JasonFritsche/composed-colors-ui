@@ -58,11 +58,6 @@ export class CreatePaletteDialogComponent implements OnInit {
     return `rgba(${red},${green},${blue},${alpha})`;
   }
 
-  testClick(circle: any) {
-    console.log('testingggg');
-    console.log(circle);
-  }
-
   savePalette(): void {
     const colorPalette: ColorPalette = {
       paletteName: this.colorPaletteForm.get('paletteName')?.value,

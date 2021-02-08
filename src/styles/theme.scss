@@ -6,6 +6,6 @@ $cc-app-primary: mat-palette($mat-teal, A200); //#64FFDA
 $cc-app-accent: mat-palette($mat-pink, 100, 500, A100); //#F8BBD0
 $cc-app-warn: mat-palette($mat-orange, 400); //#FFA726
 
-$cc-app-theme: mat-light-theme($cc-app-primary, $cc-app-accent, $cc-app-warn);
+$cc-app-theme: mat-dark-theme($cc-app-primary, $cc-app-accent, $cc-app-warn);
 
 @include angular-material-theme($cc-app-theme);

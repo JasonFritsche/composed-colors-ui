@@ -1,5 +1,11 @@
 @import "../../../../../styles/vars";
 
+.close {
+  float: right;
+  top: -1.2rem;
+  right: -1.2rem;
+}
+
 .dialog-container {
   display: flex;
   flex-flow: column nowrap;
@@ -26,10 +32,17 @@
           width: 8em;
           margin: 0.67rem;
           .color-circle {
-            width: 5rem;
-            height: 5rem;
+            width: 6rem;
+            height: 6rem;
             border-radius: 50%;
             display: inline-block;
+          }
+          .color-name {
+            display: flex;
+            flex-direction: row;
+            input {
+              margin-top: 0.4rem;
+            }
           }
         }
       }
@@ -44,7 +57,7 @@
   }
 }
 
-mat-icon {
+.edit-icon {
   margin: 0.54rem 0.3rem 0 0;
 }
 
@@ -61,6 +74,14 @@ mat-icon {
 .save-button {
   margin: 0.1rem 0;
 }
+
+input:focus ~ .edit-icon {
+  color: red;
+}
+
+// .mat-focused .mat-icon {
+//   color: red;
+// }
 
 ::ng-deep .mat-form-field .mat-form-field-underline {
   display: none;

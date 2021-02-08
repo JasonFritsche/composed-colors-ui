@@ -67,4 +67,16 @@ export class CreatePaletteDialogComponent implements OnInit {
     console.log(colorPalette);
     this._colorsService.addUserColorPalette(colorPalette);
   }
+
+  onNoClick() {
+    console.log('clicked');
+  }
+
+  onFocus() {
+    console.log('focused now');
+  }
+
+  onBlur() {
+    console.log('blurred now');
+  }
 }

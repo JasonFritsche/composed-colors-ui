@@ -1,0 +1,65 @@
+<form class="dialog-container" [formGroup]="colorPaletteForm">
+  <div class="palette-form-heading heading">
+    <mat-icon color="primary">create</mat-icon>
+    <mat-form-field>
+      <input
+        formControlName="paletteName"
+        matInput
+        placeholder="Palette Name"
+      />
+    </mat-form-field>
+  </div>
+  <div class="main-content-container">
+    <div class="palette-form-wrapper">
+      <div class="palette-form-content">
+        <div formArrayName="colors">
+          <div
+            class="color-container"
+            *ngFor="let color of colors.controls; let i = index"
+          >
+            <div [formGroupName]="i">
+              <span
+                class="color-circle"
+                [ngStyle]="{
+                  'background-color': getCircleColor(color.value.color)
+                }"
+                (click)="testClick(color)"
+              ></span>
+              <input
+                formControlName="colorName"
+                matInput
+                placeholder="Color Name"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="color-picker-container">
+      <chrome-picker [control]="chromeControl"></chrome-picker>
+      <button mat-raised-button color="accent" (click)="addColor()">
+        Add Color
+      </button>
+    </div>
+  </div>
+  <div class="palette-form-description-container heading">
+    <mat-icon color="primary">create</mat-icon>
+    <mat-form-field>
+      <mat-label>Describe your palette here...</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        [matTextareaAutosize]="true"
+        placeholder="Ex. this palette can be used to..."
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <button
+    class="save-button"
+    mat-raised-button
+    color="accent"
+    (click)="savePalette()"
+  >
+    Save Palette
+  </button>
+</form>

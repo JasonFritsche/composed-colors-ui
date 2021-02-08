@@ -1,1 +1,14 @@
-<p>create-colors works!</p>
+<div class="create-colors-container">
+  <div class="create-colors-heading">
+    <h1>Your Palettes</h1>
+  </div>
+  <div class="create-colors-content">
+    <button mat-raised-button color="accent" (click)="createPalette()">
+      create a palette
+    </button>
+    <p>{{ getContentText() }}</p>
+    <div>
+      <p>palette</p>
+    </div>
+  </div>
+</div>

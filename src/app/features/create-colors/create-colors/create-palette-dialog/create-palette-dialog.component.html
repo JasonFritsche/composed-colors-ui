@@ -1,8 +1,13 @@
+<button class="close" mat-mini-fab [mat-dialog-close]="true">
+  <mat-icon>close</mat-icon>
+</button>
 <form class="dialog-container" [formGroup]="colorPaletteForm">
   <div class="palette-form-heading heading">
-    <mat-icon color="primary">create</mat-icon>
+    <mat-icon class="edit-icon" color="primary">create</mat-icon>
     <mat-form-field>
       <input
+        (focus)="onFocus()"
+        (blur)="onBlur()"
         formControlName="paletteName"
         matInput
         placeholder="Palette Name"
@@ -11,20 +16,20 @@
   </div>
   <div class="main-content-container">
     <div class="palette-form-wrapper">
-      <div class="palette-form-content">
-        <div formArrayName="colors">
-          <div
-            class="color-container"
-            *ngFor="let color of colors.controls; let i = index"
-          >
-            <div [formGroupName]="i">
-              <span
-                class="color-circle"
-                [ngStyle]="{
-                  'background-color': getCircleColor(color.value.color)
-                }"
-                (click)="testClick(color)"
-              ></span>
+      <div class="palette-form-content" formArrayName="colors">
+        <div
+          class="color-container"
+          *ngFor="let color of colors.controls; let i = index"
+        >
+          <div [formGroupName]="i">
+            <span
+              class="color-circle"
+              [ngStyle]="{
+                'background-color': getCircleColor(color.value.color)
+              }"
+            ></span>
+            <div class="color-name">
+              <mat-icon color="primary">create</mat-icon>
               <input
                 formControlName="colorName"
                 matInput
@@ -43,7 +48,7 @@
     </div>
   </div>
   <div class="palette-form-description-container heading">
-    <mat-icon color="primary">create</mat-icon>
+    <mat-icon class="edit-icon" color="primary">create</mat-icon>
     <mat-form-field>
       <mat-label>Describe your palette here...</mat-label>
       <textarea

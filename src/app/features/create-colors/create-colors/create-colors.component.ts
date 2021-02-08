@@ -35,6 +35,7 @@ export class CreateColorsComponent implements OnInit {
 
   createPalette(): void {
     const dialogRef = this._dialog.open(CreatePaletteDialogComponent, {
+      disableClose: true,
       width: '90vw',
       height: '95vh',
       data: {},

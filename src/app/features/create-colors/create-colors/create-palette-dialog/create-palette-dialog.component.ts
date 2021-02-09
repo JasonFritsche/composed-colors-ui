@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  Validators,
-  FormArray,
-  FormGroup,
-  AbstractControl,
-} from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { ColorPickerControl, ColorsTable } from '@iplab/ngx-color-picker';
 import { Color } from 'src/app/shared/interfaces/Colors';
 import { ColorsService } from '../../../../shared/services/colors.service';
@@ -28,23 +22,7 @@ export class CreatePaletteDialogComponent implements OnInit {
     description: ['', Validators.required],
   });
 
-  get colors() {
-    return this.colorPaletteForm.get('colors') as FormArray;
-  }
-
-  addColor() {
-    const newColor: Color = {
-      hsva: this.chromeControl.value.getHsva(),
-      rgba: this.chromeControl.value.getRgba(),
-    };
-
-    let newColorGroup: FormGroup = this._formBuilder.group({
-      color: [newColor],
-      colorName: [''],
-    });
-
-    this.colors.push(newColorGroup);
-  }
+  colorArrLength: number = 0;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -52,6 +30,28 @@ export class CreatePaletteDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  get colors() {
+    return this.colorPaletteForm.get('colors') as FormArray;
+  }
+
+  addColor() {
+    this.colorArrLength =
+      this.colorPaletteForm.controls['colors'].value.length + 1;
+    if (this.colorArrLength <= 10) {
+      const newColor: Color = {
+        hsva: this.chromeControl.value.getHsva(),
+        rgba: this.chromeControl.value.getRgba(),
+      };
+
+      let newColorGroup: FormGroup = this._formBuilder.group({
+        color: [newColor],
+        colorName: ['', Validators.required],
+      });
+
+      this.colors.push(newColorGroup);
+    }
+  }
 
   getCircleColor(circle: Color): string {
     const { alpha, blue, green, red } = { ...circle.rgba };
@@ -64,7 +64,6 @@ export class CreatePaletteDialogComponent implements OnInit {
       colors: this.colorPaletteForm.get('colors')?.value,
       description: this.colorPaletteForm.get('description')?.value,
     };
-    console.log(colorPalette);
     this._colorsService.addUserColorPalette(colorPalette);
   }
 

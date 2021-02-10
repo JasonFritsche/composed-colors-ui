@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  Validators,
-  FormArray,
-  FormGroup,
-  AbstractControl,
-} from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { ColorPickerControl, ColorsTable } from '@iplab/ngx-color-picker';
 import { Color } from 'src/app/shared/interfaces/Colors';
 import { ColorsService } from '../../../../shared/services/colors.service';
@@ -64,19 +58,6 @@ export class CreatePaletteDialogComponent implements OnInit {
       colors: this.colorPaletteForm.get('colors')?.value,
       description: this.colorPaletteForm.get('description')?.value,
     };
-    console.log(colorPalette);
     this._colorsService.addUserColorPalette(colorPalette);
-  }
-
-  onNoClick() {
-    console.log('clicked');
-  }
-
-  onFocus() {
-    console.log('focused now');
-  }
-
-  onBlur() {
-    console.log('blurred now');
   }
 }

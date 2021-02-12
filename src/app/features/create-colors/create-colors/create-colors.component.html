@@ -7,8 +7,9 @@
       create a palette
     </button>
     <p>{{ getContentText() }}</p>
-    <div>
-      <p>palette</p>
+    <div *ngFor="let palette of colorPalettes">
+      <p>{{ palette.paletteName }}</p>
+      <app-palette-display></app-palette-display>
     </div>
   </div>
 </div>

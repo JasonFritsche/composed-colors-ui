@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ColorPalette } from 'src/app/shared/interfaces/Colors';
 import { CreatePaletteDialogComponent } from './create-palette-dialog/create-palette-dialog.component';
@@ -19,14 +19,21 @@ export class CreateColorsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._colorsService.userColorPalette$.subscribe((res) => console.log(res));
-    this._setContentText();
+    this._colorsService.getUserColorPalettes().subscribe((res) => {
+      this.colorPalettes = res;
+      this._setContentText();
+    });
+    this._colorsService.userColorPalette$.subscribe((res) => {
+      this.colorPalettes.push(res);
+      this._setContentText();
+    });
   }
 
   private _setContentText(): void {
-    this._contentText = this.colorPalettes.length
-      ? 'Your Palettes'
-      : 'No palettes...click the button to create one!';
+    this._contentText =
+      this.colorPalettes.length > 0
+        ? 'Your Palettes'
+        : 'No palettes...click the button to create one!';
   }
 
   getContentText(): string {
@@ -45,4 +52,6 @@ export class CreateColorsComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
+  ngOnChanges(changes: SimpleChanges) {}
 }

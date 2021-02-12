@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ColorPalette } from '../interfaces/Colors';
+import { ColorPalette, Color } from '../interfaces/Colors';
 
 @Injectable({
   providedIn: 'root',
@@ -17,9 +17,23 @@ export class ColorsService {
   userColorPalette$ = this.userColorPaletteSubject.asObservable();
 
   addUserColorPalette(palette: ColorPalette) {
-    console.log('sending?');
     return this._http
-      .post('http://localhost:3000/colors', palette, this._options)
-      .subscribe((res) => console.log(res));
+      .post<ColorPalette>(
+        'http://localhost:3000/colors',
+        palette,
+        this._options
+      )
+      .subscribe((res) => {
+        // TODO handle bad response
+        this.userColorPaletteSubject.next(res);
+      });
+  }
+
+  /**
+   * Get all Palettes for a User
+   * TODO pass in user credentials once authentication is set up
+   */
+  getUserColorPalettes() {
+    return this._http.get<ColorPalette[]>('http://localhost:3000/colors');
   }
 }

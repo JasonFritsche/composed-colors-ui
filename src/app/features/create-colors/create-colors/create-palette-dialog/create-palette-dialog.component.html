@@ -1,5 +1,5 @@
-<button class="close" mat-mini-fab [mat-dialog-close]="true">
-  <mat-icon>close</mat-icon>
+<button class="close" mat-icon-button [mat-dialog-close]="true">
+  <mat-icon color="primary">close</mat-icon>
 </button>
 <form class="dialog-container" [formGroup]="colorPaletteForm">
   <div class="palette-form-heading heading">
@@ -18,13 +18,16 @@
         <div
           class="color-container"
           *ngFor="let color of colors.controls; let i = index"
+          (click)="selectColor(i)"
         >
           <div [formGroupName]="i">
             <span
               class="color-circle"
+              [ngClass]="{ selected: selectedIndex === i && isColorSelected }"
               [ngStyle]="{
                 'background-color': getCircleColor(color.value.color)
               }"
+              #colorSpan
             ></span>
             <div class="color-name">
               <mat-icon color="primary">create</mat-icon>
@@ -40,8 +43,12 @@
     </div>
     <div class="color-picker-container">
       <chrome-picker [control]="chromeControl"></chrome-picker>
-      <button mat-raised-button color="accent" (click)="addColor()">
-        Add Color
+      <button
+        mat-raised-button
+        [color]="isColorSelected === true ? 'accent' : 'primary'"
+        (click)="addColor()"
+      >
+        {{ isColorSelected === true ? "Edit" : "Add" }} Color
       </button>
     </div>
   </div>
@@ -62,6 +69,7 @@
     mat-raised-button
     color="accent"
     (click)="savePalette()"
+    [disabled]="!colorPaletteForm.valid"
   >
     Save Palette
   </button>

@@ -28,6 +28,12 @@
         display: flex;
         flex-flow: row wrap;
         align-content: center;
+        .selected {
+          animation-name: selectedCircleAnimation;
+          animation-duration: 4s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease-in-out;
+        }
         .color-container {
           width: 8em;
           margin: 0.67rem;
@@ -89,4 +95,16 @@ input:focus ~ .edit-icon {
 
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-underline {
   display: none;
+}
+
+@keyframes selectedCircleAnimation {
+  0% {
+    box-shadow: 0 0 1rem lighten($cc-accent, 20);
+  }
+  50% {
+    box-shadow: 0 0 1rem $cc-accent;
+  }
+  100% {
+    box-shadow: 0 0 1rem lighten($cc-accent, 20);
+  }
 }

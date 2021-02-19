@@ -1,7 +1,7 @@
 export interface ColorPalette {
   id?: number;
   paletteName: string;
-  colors?: Array<any>;
+  colors: any;
   createdDate?: Date;
   lastEdited?: Date;
   description?: string;

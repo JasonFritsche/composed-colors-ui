@@ -16,7 +16,7 @@ export class CreatePaletteDialogComponent implements OnInit {
     .hidePresets()
     .hideAlphaChannel();
 
-  colorPaletteForm = this._formBuilder.group({
+  colorPaletteForm: FormGroup = this._formBuilder.group({
     paletteName: ['', Validators.required],
     colors: this._formBuilder.array([]),
     description: ['', Validators.required],
@@ -80,7 +80,8 @@ export class CreatePaletteDialogComponent implements OnInit {
       colors: this.colorPaletteForm.get('colors')?.value,
       description: this.colorPaletteForm.get('description')?.value,
     };
-    this._colorsService.addUserColorPalette(colorPalette);
+    console.log(colorPalette);
+    //this._colorsService.addUserColorPalette(colorPalette);
   }
 
   /**

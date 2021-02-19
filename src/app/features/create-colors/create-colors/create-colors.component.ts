@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ColorPalette } from 'src/app/shared/interfaces/Colors';
 import { CreatePaletteDialogComponent } from './create-palette-dialog/create-palette-dialog.component';
 import { ColorsService } from '../../../shared/services/colors.service';
+import { logging } from 'protractor';
 
 @Component({
   selector: 'app-create-colors',
@@ -53,5 +54,7 @@ export class CreateColorsComponent implements OnInit {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges) {}
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+  }
 }

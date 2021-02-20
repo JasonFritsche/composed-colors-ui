@@ -23,7 +23,7 @@ export class ColorsDisplayComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
 
   private _generateColor(): void {
-    const color: Color = JSON.parse(this.colorObj).color;
+    const color: Color = this.colorObj.color;
     if (color.rgba) {
       this._setCircleColor(color.rgba);
     }

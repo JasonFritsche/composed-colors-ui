@@ -81,8 +81,6 @@ export class CreatePaletteDialogComponent implements OnInit {
       description: this.colorPaletteForm.get('description')?.value,
     };
     this._colorsService.addUserColorPalette(colorPalette);
-    console.log(colorPalette);
-    //this._colorsService.addUserColorPalette(colorPalette);
   }
 
   /**

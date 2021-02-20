@@ -1,11 +1,45 @@
-.palette-display-container {
-  width: 90vw;
-  min-height: 7em;
-  border: 1px solid violet;
-  margin: 1rem;
+@import "../../../../styles/vars";
 
-  .colors-display {
+.palette-display-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  .palette-container {
     display: flex;
-    flex-direction: row;
+    flex-flow: column nowrap;
+    width: 90vw;
+    min-height: 7em;
+    border: 0.3rem solid darken($cc-accent, 20);
+    border-radius: 2px;
+    margin: 1rem;
+
+    .palette-header {
+      width: 100%;
+      background-color: $cc-accent;
+      align-self: center;
+      h1 {
+        text-align: center;
+        color: $darkest;
+      }
+    }
+
+    .palette-description {
+      width: 95%;
+      padding: 0.5rem;
+      align-self: center;
+      border-top: 0.05rem solid darken($cc-accent, 20);
+      h1 {
+        text-align: center;
+      }
+    }
+
+    .colors-display {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem;
+    }
+  }
+  .palette-container:hover {
+    border: 0.3rem solid $cc-accent;
   }
 }

@@ -54,7 +54,11 @@ export class CreateColorsComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
+  ngOnChanges(changes: SimpleChanges) {}
+=======
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
   }
+>>>>>>> main
 }

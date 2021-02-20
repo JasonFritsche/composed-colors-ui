@@ -1,0 +1,11 @@
+.palette-display-container {
+  width: 90vw;
+  min-height: 7em;
+  border: 1px solid violet;
+  margin: 1rem;
+
+  .colors-display {
+    display: flex;
+    flex-direction: row;
+  }
+}

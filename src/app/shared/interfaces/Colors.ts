@@ -1,7 +1,7 @@
 export interface ColorPalette {
   id?: number;
   paletteName: string;
-  colors?: Array<any>;
+  colors: any;
   createdDate?: Date;
   lastEdited?: Date;
   description?: string;
@@ -9,7 +9,7 @@ export interface ColorPalette {
 
 export interface Color {
   id?: number;
-  alias?: string;
+  colorName?: string;
   hsva: {
     alpha: number;
     hue: number;
@@ -22,4 +22,10 @@ export interface Color {
     green: number;
     red: number;
   };
+}
+
+export interface SelectedColor {
+  index?: number;
+  isColorSelected: boolean;
+  selectedColor?: Color;
 }

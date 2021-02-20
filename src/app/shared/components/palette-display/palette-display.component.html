@@ -1,1 +1,15 @@
+<<<<<<< HEAD
 <p>palette-display works!</p>
+=======
+<ng-container *ngFor="let palette of colorPalettes">
+  <div class="palette-display-container">
+    <h1>{{ palette.paletteName }}</h1>
+    <div class="colors-display">
+      <ng-container *ngFor="let color of palette.colors">
+        <app-colors-display [colorObj]="color"></app-colors-display>
+      </ng-container>
+    </div>
+    <p>{{ palette.description }}</p>
+  </div>
+</ng-container>
+>>>>>>> main

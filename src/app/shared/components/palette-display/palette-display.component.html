@@ -1,21 +1,23 @@
 <div class="palette-display-container">
   <ng-container *ngFor="let palette of colorPalettes">
-    <div class="palette-container">
+    <div class="palette-container make-it-slow">
       <div class="palette-header">
         <h1>{{ palette.paletteName }}</h1>
       </div>
-      <div
-        class="colors-display"
-        [ngStyle]="getColorDisplayStyles(palette.colors.length)"
-      >
+      <div class="colors-display-container">
         <ng-container *ngFor="let color of palette.colors">
-          <app-colors-display [colorObj]="color"></app-colors-display>
+          <app-colors-display
+            class="colors-display"
+            [colorObj]="color"
+          ></app-colors-display>
         </ng-container>
       </div>
-      <div class="palette-description">
-        <h1>Description</h1>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>About</mat-panel-title>
+        </mat-expansion-panel-header>
         <p>{{ palette.description }}</p>
-      </div>
+      </mat-expansion-panel>
     </div>
   </ng-container>
 </div>

@@ -14,10 +14,10 @@ import { Color } from 'src/app/shared/interfaces/Colors';
 })
 export class ColorsDisplayComponent implements OnInit, OnChanges {
   @Input() colorObj: any;
-  circleColor: string;
+  paletteColor: string;
 
   constructor() {
-    this.circleColor = 'rgba(1,1,1,1)';
+    this.paletteColor = 'rgba(1,1,1,1)';
   }
 
   ngOnInit(): void {}
@@ -30,7 +30,7 @@ export class ColorsDisplayComponent implements OnInit, OnChanges {
   }
 
   private _setCircleColor(rgba: Color['rgba']) {
-    this.circleColor = `rgba(${rgba.red},${rgba.green},${rgba.blue},${rgba.alpha})`;
+    this.paletteColor = `rgba(${rgba.red},${rgba.green},${rgba.blue},${rgba.alpha})`;
   }
 
   ngOnChanges(changes: SimpleChanges) {

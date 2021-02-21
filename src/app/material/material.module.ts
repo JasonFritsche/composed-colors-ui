@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const x = [
   MatSidenavModule,
@@ -16,6 +17,7 @@ const x = [
   MatDialogModule,
   MatInputModule,
   MatButtonModule,
+  MatExpansionModule,
 ];
 
 @NgModule({

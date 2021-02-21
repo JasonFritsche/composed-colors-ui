@@ -5,3 +5,7 @@ $cc-warn: #ffa726;
 $darkest: #171717;
 $darker: lighten($darkest, 15);
 $dark: lighten($darkest, 25);
+
+$lightest: #fff;
+$lighter: darken($lightest, 10);
+$light: darken($lightest, 20);

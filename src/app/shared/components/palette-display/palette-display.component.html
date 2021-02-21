@@ -12,13 +12,21 @@
           ></app-colors-display>
         </ng-container>
       </div>
-      <mat-expansion-panel hideToggle>
+      <mat-expansion-panel
+        hideToggle
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <mat-icon color="primary">expand_more</mat-icon>
+            <mat-icon [ngStyle]="getDescriptionIconClass()" color="primary"
+              >expand_more</mat-icon
+            >
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <p>{{ palette.description }}</p>
+        <ul>
+          <li>Description: {{ palette.description }}</li>
+        </ul>
       </mat-expansion-panel>
     </div>
   </ng-container>

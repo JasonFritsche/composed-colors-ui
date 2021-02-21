@@ -65,3 +65,8 @@ $hover-color: darken($darkest, 5);
 mat-expansion-panel-header:hover {
   background-color: $hover-color !important;
 }
+
+.specific-class > .mat-expansion-indicator,
+.mat-expansion-indicator:after {
+  color: red !important;
+}

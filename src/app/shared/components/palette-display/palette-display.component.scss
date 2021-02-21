@@ -1,5 +1,7 @@
 @import "../../../../styles/vars";
 
+$hover-color: darken($darkest, 5);
+
 .palette-display-container {
   display: flex;
   flex-flow: column nowrap;
@@ -9,37 +11,57 @@
     flex-flow: column nowrap;
     width: 90vw;
     min-height: 7em;
-    border: 0.3rem solid darken($cc-accent, 20);
+    border: 0.15rem solid $darkest;
     border-radius: 2px;
     margin: 1rem;
 
     .palette-header {
       width: 100%;
-      background-color: $cc-accent;
+      background-color: $darkest;
       align-self: center;
       h1 {
         text-align: center;
-        color: $darkest;
+        color: $cc-primary;
       }
     }
 
-    .palette-description {
-      width: 95%;
-      padding: 0.5rem;
-      align-self: center;
-      border-top: 0.05rem solid darken($cc-accent, 20);
-      h1 {
-        text-align: center;
-      }
+    mat-expansion-panel {
+      background-color: $darkest;
+      border-radius: 0;
     }
 
-    .colors-display {
+    .colors-display-container {
       display: flex;
       flex-direction: row;
-      padding: 1rem;
+      .colors-display {
+        flex: 1;
+        height: 9em;
+      }
     }
   }
   .palette-container:hover {
-    border: 0.3rem solid $cc-accent;
+    border: 0.15rem solid $hover-color;
+    .palette-header {
+      background-color: $hover-color;
+      h1 {
+        color: lighten($cc-primary, 10);
+      }
+    }
+    mat-expansion-panel {
+      background-color: $hover-color;
+    }
   }
+}
+
+.make-it-slow {
+  box-shadow: 0.1em 0.1em 0.1em $dark;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.make-it-slow:hover {
+  box-shadow: 0.5em 0.3em 0.3em $dark;
+}
+
+mat-expansion-panel-header:hover {
+  background-color: $hover-color !important;
 }

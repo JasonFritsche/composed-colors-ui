@@ -13,13 +13,13 @@ export class PaletteDisplayComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getColorDisplayStyles(colorsLength: number) {
-    return {
-      display: 'grid',
-      'grid-template-columns': `repeat(${colorsLength}, calc(4em + 10%))`,
-      'justify-items': 'start',
-    };
-  }
+  // getColorDisplayStyles(colorsLength: number) {
+  //   return {
+  //     display: 'grid',
+  //     'grid-template-columns': `repeat(${colorsLength}, calc(4em + 10%))`,
+  //     'justify-items': 'start',
+  //   };
+  // }
 
   ngOnChanges(changes: SimpleChanges) {}
 }

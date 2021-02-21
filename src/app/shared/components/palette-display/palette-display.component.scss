@@ -53,12 +53,12 @@ $hover-color: darken($darkest, 5);
   }
 }
 
-.make-it-slow {
+.shadow {
   box-shadow: 0.1em 0.1em 0.1em $dark;
   transition: box-shadow 0.3s ease-in-out;
 }
 
-.make-it-slow:hover {
+.shadow:hover {
   box-shadow: 0.5em 0.3em 0.3em $dark;
 }
 

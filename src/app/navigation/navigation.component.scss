@@ -1,11 +1,14 @@
 @import "../../styles/vars";
 @import "../../styles/mixins";
 
+$toolbar-height: 2.4em;
+
 .sidenav-container {
-  height: 100%;
+  height: calc(100% - 2.4em);
 }
 
 mat-toolbar {
+  height: $toolbar-height;
   mat-icon {
     color: $dark;
     @include tablet {
@@ -40,4 +43,11 @@ mat-sidenav {
     font-size: 0.9em;
   }
   width: 6em;
+}
+
+.sidenav-content {
+  display: flex;
+  height: calc(100% - 2.4em);
+  align-items: center;
+  justify-content: center;
 }

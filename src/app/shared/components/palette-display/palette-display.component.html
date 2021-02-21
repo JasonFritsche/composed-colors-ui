@@ -1,6 +1,6 @@
 <div class="palette-display-container">
   <ng-container *ngFor="let palette of colorPalettes">
-    <div class="palette-container make-it-slow">
+    <div class="palette-container shadow">
       <div class="palette-header">
         <h1>{{ palette.paletteName }}</h1>
       </div>
@@ -14,7 +14,9 @@
       </div>
       <mat-expansion-panel hideToggle>
         <mat-expansion-panel-header>
-          <mat-panel-title>About</mat-panel-title>
+          <mat-panel-title>
+            <mat-icon color="primary">expand_more</mat-icon>
+          </mat-panel-title>
         </mat-expansion-panel-header>
         <p>{{ palette.description }}</p>
       </mat-expansion-panel>

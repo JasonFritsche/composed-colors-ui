@@ -8,10 +8,23 @@ import { ColorPalette } from '../../interfaces/Colors';
 })
 export class PaletteDisplayComponent implements OnInit {
   @Input() colorPalettes: Array<ColorPalette> = [];
+  panelOpenState = false;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  ngOnChanges(changes: SimpleChanges) {}
+  getDescriptionIconClass(): object {
+    const transformValue = this.panelOpenState
+      ? `rotate(360deg)`
+      : `rotate(270deg)`;
+    return {
+      transform: `${transformValue}`,
+      transition: 'transform .5s ease',
+    };
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+  }
 }

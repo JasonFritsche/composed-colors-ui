@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { ColorPalette } from '../../interfaces/Colors';
+import { Color, ColorPalette } from '../../interfaces/Colors';
 
 @Component({
   selector: 'app-palette-display',
@@ -22,6 +22,17 @@ export class PaletteDisplayComponent implements OnInit {
       transform: `${transformValue}`,
       transition: 'transform .5s ease',
     };
+  }
+
+  getRgba(color: Color): string {
+    const { red, blue, alpha, green } = { ...color.rgba };
+    return `rbga(${this._twoDecimals(red)}, ${this._twoDecimals(
+      blue
+    )}, ${this._twoDecimals(green)}, ${this._twoDecimals(alpha)})`;
+  }
+
+  private _twoDecimals(colorNum: number): string {
+    return colorNum % 1 === 0 ? colorNum.toString() : colorNum.toFixed(2);
   }
 
   ngOnChanges(changes: SimpleChanges) {

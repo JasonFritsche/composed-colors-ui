@@ -4,13 +4,20 @@
       <div class="palette-header">
         <h1>{{ palette.paletteName }}</h1>
       </div>
-      <div class="colors-display-container">
-        <ng-container *ngFor="let color of palette.colors">
-          <app-colors-display
-            class="colors-display"
-            [colorObj]="color"
-          ></app-colors-display>
-        </ng-container>
+      <div class="color-display-container">
+        <div class="colors-display">
+          <ng-container *ngFor="let color of palette.colors">
+            <app-colors-display
+              class="colors-display"
+              [colorObj]="color"
+            ></app-colors-display>
+          </ng-container>
+        </div>
+        <div>
+          <ul *ngFor="let color of palette.colors">
+            <li>{{ color.colorName }}: {{ getRgba(color.color) }}</li>
+          </ul>
+        </div>
       </div>
       <mat-expansion-panel
         hideToggle

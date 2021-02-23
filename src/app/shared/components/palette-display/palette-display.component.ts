@@ -9,20 +9,11 @@ import { Color, ColorPalette } from '../../interfaces/Colors';
 export class PaletteDisplayComponent implements OnInit {
   @Input() colorPalettes: Array<ColorPalette> = [];
   panelOpenState = false;
+  activePalette = 99;
 
   constructor() {}
 
   ngOnInit(): void {}
-
-  getDescriptionIconClass(): object {
-    const transformValue = this.panelOpenState
-      ? `rotate(360deg)`
-      : `rotate(270deg)`;
-    return {
-      transform: `${transformValue}`,
-      transition: 'transform .5s ease',
-    };
-  }
 
   getRgba(color: Color): string {
     const { red, blue, alpha, green } = { ...color.rgba };
@@ -33,6 +24,14 @@ export class PaletteDisplayComponent implements OnInit {
 
   private _twoDecimals(colorNum: number): string {
     return colorNum % 1 === 0 ? colorNum.toString() : colorNum.toFixed(2);
+  }
+
+  setActivePalette(idx: number) {
+    this.activePalette = idx;
+  }
+
+  removeActivePalette() {
+    this.activePalette = 99;
   }
 
   ngOnChanges(changes: SimpleChanges) {

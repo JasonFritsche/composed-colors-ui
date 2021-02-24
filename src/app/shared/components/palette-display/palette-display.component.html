@@ -1,10 +1,6 @@
 <div class="palette-display-container">
   <ng-container *ngFor="let palette of colorPalettes; let i = index">
-    <div
-      class="palette-container shadow"
-      (mouseenter)="setActivePalette(i)"
-      (mouseleave)="removeActivePalette()"
-    >
+    <div class="palette-container shadow" color-text>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
@@ -18,21 +14,7 @@
           <li>Description: {{ palette.description }}</li>
         </ul>
       </mat-expansion-panel>
-      <div class="color-display-container">
-        <div class="colors-display">
-          <ng-container *ngFor="let color of palette.colors">
-            <app-colors-display
-              class="colors-display"
-              [colorObj]="color"
-            ></app-colors-display>
-          </ng-container>
-        </div>
-        <div>
-          <ul *ngFor="let color of palette.colors">
-            <li>{{ color.colorName }}: {{ getRgba(color.color) }}</li>
-          </ul>
-        </div>
-      </div>
+      <app-colors-section [colors]="palette.colors"></app-colors-section>
     </div>
   </ng-container>
 </div>

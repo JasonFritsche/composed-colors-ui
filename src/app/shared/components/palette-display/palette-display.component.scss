@@ -29,19 +29,6 @@ $hover-color: darken($darkest, 5);
       background-color: $darkest;
       border-radius: 0;
     }
-
-    .color-display-container {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      .colors-display {
-        display: flex;
-        flex-direction: row;
-        .colors-display {
-          flex: 1;
-          height: 9em;
-        }
-      }
-    }
   }
   .palette-container:hover {
     border: 0.15rem solid $hover-color;

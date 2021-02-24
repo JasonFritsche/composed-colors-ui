@@ -1,0 +1,25 @@
+<div class="color-display-container">
+  <div class="colors-display">
+    <ng-container *ngFor="let color of colors; let i = index">
+      <app-colors-display
+        class="colors-display"
+        [colorObj]="color"
+        (mouseenter)="onMouseEnter(i)"
+        (mouseleave)="onMouseLeave()"
+      ></app-colors-display>
+    </ng-container>
+  </div>
+  <div>
+    <ul>
+      <li
+        *ngFor="let color of colors; let j = index"
+        [ngClass]="{
+          'highlight-color-text': hoveredColorIndex === j,
+          'color-text': hoveredColorIndex !== j
+        }"
+      >
+        {{ color.colorName }}: {{ getRgba(color.color) }}
+      </li>
+    </ul>
+  </div>
+</div>

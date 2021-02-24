@@ -1,0 +1,22 @@
+@import "../../../../../styles/vars";
+
+.color-display-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  .colors-display {
+    display: flex;
+    flex-direction: row;
+    .colors-display {
+      flex: 1;
+      height: 9em;
+    }
+  }
+}
+
+.highlight-color-text {
+  color: $cc-primary;
+}
+
+.color-text {
+  color: $light;
+}

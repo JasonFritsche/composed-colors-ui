@@ -9,17 +9,28 @@
       ></app-colors-display>
     </ng-container>
   </div>
-  <div>
-    <ul>
-      <li
-        *ngFor="let color of colors; let j = index"
-        [ngClass]="{
-          'highlight-color-text': hoveredColorIndex === j,
-          'color-text': hoveredColorIndex !== j
-        }"
+  <div class="color-values-container">
+    <div>
+      <ul>
+        <li
+          *ngFor="let color of colors; let j = index"
+          [ngClass]="{
+            'highlight-color-text': hoveredColorIndex === j,
+            'color-text': hoveredColorIndex !== j
+          }"
+        >
+          {{ color.colorName }}: {{ getColorValue(color.color) }}
+        </li>
+      </ul>
+    </div>
+    <div class="color-value-select">
+      <button
+        (click)="onDisplayOptionChange()"
+        mat-icon-button
+        aria-label="Change Color Value Type"
       >
-        {{ color.colorName }}: {{ getRgba(color.color) }}
-      </li>
-    </ul>
+        <mat-icon color="primary">color_lens</mat-icon>
+      </button>
+    </div>
   </div>
 </div>

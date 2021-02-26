@@ -8,7 +8,16 @@
     flex-direction: row;
     .colors-display {
       flex: 1;
-      height: 9em;
+    }
+  }
+  .color-values-container {
+    display: grid;
+    grid-template-columns: 1fr 1em;
+    .color-value-select {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+      align-items: baseline;
     }
   }
 }
@@ -19,4 +28,8 @@
 
 .color-text {
   color: $light;
+}
+
+ul {
+  list-style: none;
 }

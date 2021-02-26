@@ -28,6 +28,14 @@ $hover-color: darken($darkest, 5);
     mat-expansion-panel {
       background-color: $darkest;
       border-radius: 0;
+      mat-expansion-panel-header {
+        mat-panel-title {
+          justify-content: center;
+          h1 {
+            margin: 0.2rem;
+          }
+        }
+      }
     }
   }
   .palette-container:hover {

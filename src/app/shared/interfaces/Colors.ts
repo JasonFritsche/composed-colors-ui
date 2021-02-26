@@ -29,3 +29,8 @@ export interface SelectedColor {
   isColorSelected: boolean;
   selectedColor?: Color;
 }
+
+export interface DisplayOption {
+  value: string;
+  viewValue: string;
+}

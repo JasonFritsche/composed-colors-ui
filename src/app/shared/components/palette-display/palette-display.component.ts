@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { Color, ColorPalette } from '../../interfaces/Colors';
+import { Component, Input, OnInit } from '@angular/core';
+import { ColorPalette } from '../../interfaces/Colors';
 
 @Component({
   selector: 'app-palette-display',
@@ -9,8 +9,16 @@ import { Color, ColorPalette } from '../../interfaces/Colors';
 export class PaletteDisplayComponent implements OnInit {
   @Input() colorPalettes: Array<ColorPalette> = [];
   panelOpenState = false;
+  colorValueType: string = 'rgba';
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onDisplayOptionChange(displayValue: string): void {
+    console.log(displayValue);
+    displayValue === 'hsva'
+      ? (this.colorValueType = 'hsva')
+      : (this.colorValueType = 'rgba');
+  }
 }
